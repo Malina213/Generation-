@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(./button-toggle.css);
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:bisque ;
+
+}
+.generation__settings-length{
+    display: block;
+}
+.generation{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    padding: 20px;
+    width: 470px;
+    background-color: rgb(155, 126, 155);
+    border-radius: 15px;
+}
+.generation__title{
+    font-size: 25px;
+    font-weight: 500;
+}
+.generation__password-input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: black;
+    margin-top: 30px;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(180, 248, 225);
+    border-radius: 15px ;
+}
+.copy__button{
+    position: absolute;
+    top: 98px;
+    left: 405px;
+}
+.generation__settings-title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+}
+.generation__settings{
+    margin-top: 30px;
+    width: 100%;
+}
+.generation__settings-function{
+    border: 1px solid black;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 15px;
+}
+.generation__settings-options{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.generation__settings-button{
+    margin-top: 35px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: brown;
+
+}

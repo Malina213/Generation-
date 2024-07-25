@@ -1,0 +1,36 @@
+.button-switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.button{
+    background-color: #d2d2d2;
+    width: 70px;
+    height: 35px;
+    border-radius: 200px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+  }
+  .button::before{
+    position: absolute;
+    content: '';
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 200px;
+    margin: 5px;
+    transition: 0.2s;
+  
+  }
+  input:checked + .button{
+    background-color: #20096d;
+  }
+  input:checked + .button::before{
+    transform: translateX(35px);
+  }
+  input{
+    display: none;
+  }
+
+  

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор паролей</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   <section class="password">
+        <div class="generation">
+            <h1 class="generation__title">Generation Password</h1>
+            <div id="password" class="generation__password-input"></div>
+            <button id="copyButton" class="copy__button">
+                <img src="./copy.svg" alt="copy">
+            </button>
+            <div class="generation__settings">
+                <h2 class="generation__settings-title">Setting up a password</h2>
+                <ul class="generation__settings-function">
+                    <li class="generation__settings-options">
+                        <label for="length">Укажите длину пароля</label>
+                        <input type="number" id="length" class="generation__settings-length" value="10" min="6" max="20" >
+                    </li>
+                    <li class="generation__settings-options">
+                        <p>Upper letters</p>
+                        <div class="button-switch">
+                            <input type="checkbox" id="check1">
+                            <label for="check1" class="button"></label>
+                        </div>
+                    </li>
+                    <li class="generation__settings-options">
+                        <p>Numbers</p>
+                        <div class="button-switch">
+                            <input type="checkbox" id="check2">
+                            <label for="check2" class="button"></label>
+                        </div>
+                    </li>
+                    <li class="generation__settings-options">
+                        <p>Special letters</p>
+                        <div class="button-switch">
+                            <input type="checkbox" id="check3">
+                            <label for="check3" class="button"></label>
+                        </div>
+                    </li>
+                </ul>
+                <button id="button" class="generation__settings-button">Generate</button>
+            </div>
+        </div>
+   </section>
+   <script src="./js/copy-link.js"></script>
+   <script src="./js/main.js"></script>
+</body>
+</html>
