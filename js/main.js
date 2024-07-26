@@ -1,50 +1,71 @@
+import './copy-link.js'
 
-const dom = {
-    password: document.querySelector('#password'),
-    button : document.querySelector('#button'),
+const dom = { 
+    password: document.querySelector('#password'), 
+    button : document.querySelector('#button'), 
+    length : document.querySelector('#length'), 
+    checkboxUpper : document.querySelector('#check1'), 
+    checkboxNumber : document.querySelector('#check2'), 
+    checkboSpecial : document.querySelector('#check3'), 
+}; 
 
-    length : document.querySelector('#length'),
-    checkboxUpper : document.querySelector('#check1'),
-    checkboxNumber : document.querySelector('#check2'),
-    checkboSpecial : document.querySelector('#check3'),
-};
-const data = {
-    upperLetters : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    lowerLetters : 'abcdefghijklmnopqrstuvwxyz',
-    number : '0123456789',
-    specialLetters: '!@#$%^&*()-=+<>{}[];:'
-};
-let result = data.lowerLetters;
+const data = { 
+    upperLetters : 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 
+    lowerLetters : 'abcdefghijklmnopqrstuvwxyz', 
+    number : '0123456789', 
+    specialLetters: '!@#$%^&*()-=+<>{}[];,.:' 
+}; 
+let passwordLength = parseInt(dom.length.value); 
 
-dom.checkboxUpper.addEventListener('click',function(){
-    if(dom.checkboxUpper.checked && !result.includes(data.upperLetters)){
-       result += data.upperLetters
-    }else if(!dom.checkboxUpper.checked){
-       result = result.replace('ABCDEFGHIJKLMNOPQRSTUVWXYZ','')
+function createPassword(){
+    let passwordLength = parseInt(dom.length.value); 
+    if (passwordLength < 8 || passwordLength > 20 ) {
+        alert('Длина пароля от 8 до 20 символов')
+    }else{
+        passwordRules()
     }
-});
-dom.checkboxNumber.addEventListener('click',function(){
-    if(dom.checkboxUpper.checked && !result.includes(data.number)){
-        result += data.number
-    }else if(!dom.checkboxNumber.checked){
-        result = result.replace('0123456789','')
-    }
-});
-dom.checkboSpecial.addEventListener('click',function(){
-    if(dom.checkboxUpper.checked && !result.includes(data.specialLetters)){
-        result += data.specialLetters
-    }else if(!dom.checkboSpecial.checked){
-        result = result.replace('!@#$%^&*()-=+<>{}[];:','')
-    }
-});
 
-dom.button.addEventListener('click',function(){
-    let resultPassword = ''
-    for(let i = 0 ; i < dom.length.value; i++){
-        resultPassword += result.charAt(Math.floor(Math.random() * result.length));
+}
+
+function passwordRules(){
+    let resultPassword = '';  
+    let passwordLength = parseInt(dom.length.value); 
+    if (dom.checkboxUpper.checked) {
+        for(let i = 0 ; i < Math.floor (Math.random () * (4 - 2 + 1)) + 2; i++){
+            resultPassword += data.upperLetters.charAt(Math.floor(Math.random() * data.upperLetters.length));
+        }
+        
     }
     
-    dom.password.innerText = resultPassword
-})
+    if (dom.checkboxNumber.checked) {
+
+        for(let i = 0 ; i < Math.floor (Math.random () * (4 - 2 + 1)) + 2; i++){
+            resultPassword += data.number.charAt(Math.floor(Math.random() * data.number.length));
+        }
+        
+    }
+        
+    if (dom.checkboSpecial.checked) {
+        for(let i = 0 ; i < Math.floor (Math.random () * (4 - 2 + 1)) + 2; i++){
+            resultPassword += data.specialLetters.charAt(Math.floor(Math.random() * data.specialLetters.length));
+        }
+        
+    }
+
+    while (resultPassword.length < passwordLength) {
+        resultPassword += data.lowerLetters.charAt(Math.floor(Math.random() * data.lowerLetters.length));
+    } 
+    resultPassword = resultPassword.split('').sort(() => Math.random() - 0.5).join('');
+
+    dom.password.innerText = resultPassword; 
+}
+
+dom.button.addEventListener('click', function() { 
+
+    createPassword()
+
+});
+
+
 
 
